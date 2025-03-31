@@ -125,7 +125,7 @@ export class PackageTree {
       const simplePaths: string[] = [];
       for (const pattern of patterns) {
         // If the input is a pattern, we have to run micromatch to convert that into a list of files
-        if (/[{}*?\[\]!+()]|@\(/.test(pattern)) {
+        if (/[{}*?[\]!+()]|@\(/.test(pattern)) {
           if (pattern.startsWith("!")) {
             packagePatterns.push(`!${path.join(packagePath, pattern.slice(1)).replace(/\\/g, "/")}`);
           } else {

@@ -114,7 +114,7 @@ export class FileHasher {
           size: Number(stat.size),
           hash: hash ?? "",
         };
-      } catch (e) {
+      } catch (e: any) {
         if (e.code !== "ENOENT") {
           throw e;
         }

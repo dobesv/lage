@@ -13,13 +13,13 @@ import createLogger from "@lage-run/logger";
 import type { ReporterInitOptions } from "../../types/ReporterInitOptions.js";
 import type { FilterOptions } from "../../types/FilterOptions.js";
 import type { SchedulerRunSummary } from "@lage-run/scheduler-types";
-import type { Target, TargetConfig, TargetGraph } from "@lage-run/target-graph";
+import type { TargetGraph } from "@lage-run/target-graph";
 import { NoTargetFoundError } from "../../types/errors.js";
 import { createCache } from "../../cache/createCacheProvider.js";
 import { runnerPickerOptions } from "../../runnerPickerOptions.js";
 import { optimizeTargetGraph } from "../../optimizeTargetGraph.js";
 import type { TargetRunnerPickerOptions } from "@lage-run/runners";
-import { shouldRun } from "../shouldRun";
+import { shouldRun } from "../shouldRun.js";
 
 interface RunOptions extends ReporterInitOptions, FilterOptions {
   concurrency: number;

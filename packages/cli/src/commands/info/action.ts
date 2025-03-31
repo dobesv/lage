@@ -11,9 +11,9 @@ import fs from "fs";
 import { parse } from "shell-quote";
 
 import type { ReporterInitOptions } from "../../types/ReporterInitOptions.js";
-import { type Target, getStartTargetId, type TargetConfig } from "@lage-run/target-graph";
+import { type Target, getStartTargetId } from "@lage-run/target-graph";
 import { initializeReporters } from "../initializeReporters.js";
-import { TargetRunnerPicker, type TargetRunnerPickerOptions } from "@lage-run/runners";
+import { TargetRunnerPicker } from "@lage-run/runners";
 import { getBinPaths } from "../../getBinPaths.js";
 import { runnerPickerOptions } from "../../runnerPickerOptions.js";
 import { parseServerOption } from "../parseServerOption.js";
@@ -22,7 +22,7 @@ import { glob } from "@lage-run/globby";
 import { FileHasher } from "@lage-run/hasher/lib/FileHasher.js";
 import { hashStrings } from "@lage-run/hasher";
 import { getGlobalInputHashFilePath } from "../targetHashFilePath.js";
-import { shouldRun } from "../shouldRun";
+import { shouldRun } from "../shouldRun.js";
 
 interface InfoActionOptions extends ReporterInitOptions {
   dependencies: boolean;

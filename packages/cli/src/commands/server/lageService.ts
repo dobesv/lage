@@ -16,7 +16,7 @@ import { formatDuration, hrToSeconds, hrtimeDiff } from "@lage-run/format-hrtime
 import path from "path";
 import fs from "fs";
 import { getGlobalInputHashFilePath, getHashFilePath } from "../targetHashFilePath.js";
-import { shouldRun } from "../shouldRun";
+import { shouldRun } from "../shouldRun.js";
 import type { TargetRunnerPickerOptions } from "@lage-run/runners";
 
 interface LageServiceContext {

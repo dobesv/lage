@@ -1,5 +1,5 @@
 import type { Target, TargetConfig } from "@lage-run/target-graph";
-import { TargetRunner, TargetRunnerPicker, TargetRunnerPickerOptions } from "@lage-run/runners";
+import { TargetRunnerPicker, type TargetRunnerPickerOptions } from "@lage-run/runners";
 
 // Generate a shouldRun function we can provide to the graph builder to prune tasks
 // This allows the runners configured in the project to return whether the task should
