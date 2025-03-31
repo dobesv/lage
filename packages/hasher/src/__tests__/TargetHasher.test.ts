@@ -207,5 +207,4 @@ describe("The main Hasher class", () => {
 
     monorepo1.cleanup();
   });
-
 });

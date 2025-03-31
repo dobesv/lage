@@ -20,7 +20,7 @@ const defaultShouldRun = (config: TargetConfig, target: Target) => {
   }
 
   return true;
-}
+};
 
 /**
  * TargetGraphBuilder class provides a builder API for registering target configs. It exposes a method called `generateTargetGraph` to
@@ -54,7 +54,11 @@ export class WorkspaceTargetGraphBuilder {
    * @param root the root directory of the workspace
    * @param packageInfos the package infos for the workspace
    */
-  constructor(root: string, private packageInfos: PackageInfos, private shouldRun: (config: TargetConfig, target: Target) => boolean | Promise<boolean> = defaultShouldRun) {
+  constructor(
+    root: string,
+    private packageInfos: PackageInfos,
+    private shouldRun: (config: TargetConfig, target: Target) => boolean | Promise<boolean> = defaultShouldRun
+  ) {
     this.dependencyMap = createDependencyMap(packageInfos, { withDevDependencies: true, withPeerDependencies: false });
     this.graphBuilder = new TargetGraphBuilder();
     this.targetFactory = new TargetFactory({
@@ -97,7 +101,7 @@ export class WorkspaceTargetGraphBuilder {
       for (const packageName of packages) {
         const task = id;
         const target = this.targetFactory.createPackageTarget(packageName!, task, config);
-        if(await this.shouldRun(config, target)) {
+        if (await this.shouldRun(config, target)) {
           this.graphBuilder.addTarget(target);
           this.targetConfigMap.set(id, config);
 

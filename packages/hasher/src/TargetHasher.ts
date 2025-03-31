@@ -176,7 +176,7 @@ export class TargetHasher {
       const files = await globAsync(target.inputs, { cwd: root });
       const fileHashes = hash(files, { cwd: root }) ?? {};
 
-      const hashes = Object.entries(fileHashes).map(p => p.join(' '));
+      const hashes = Object.entries(fileHashes).map((p) => p.join(" "));
 
       return hashStrings(hashes);
     }
@@ -201,20 +201,18 @@ export class TargetHasher {
     const fileHashes = this.fileHasher.hash(files) ?? {}; // this list is sorted by file name
 
     // get target hashes
-    const targetDepHashes = target.dependencies?.sort().map(
-      (targetDep) => [targetDep, this.targetHashes[targetDep]].join(' ')
-    );
+    const targetDepHashes = target.dependencies?.sort().map((targetDep) => [targetDep, this.targetHashes[targetDep]].join(" "));
 
     const globalFileHashes = await this.getEnvironmentGlobHashes(root, target);
 
     const combinedHashes = [
       // Environmental hashes
-      ...Object.entries(globalFileHashes).map(p => p.join(' ')),
+      ...Object.entries(globalFileHashes).map((p) => p.join(" ")),
       `${target.id}|${JSON.stringify(this.options.cliArgs)}`,
       this.options.cacheKey || "",
 
       // File content hashes based on target.inputs
-      ...Object.entries(fileHashes).map(p => p.join(' ')),
+      ...Object.entries(fileHashes).map((p) => p.join(" ")),
 
       // Dependency hashes
       ...resolvedDependencies,

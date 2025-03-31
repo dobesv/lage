@@ -84,7 +84,7 @@ async function createInitializedPromise({ cwd, logger, serverControls, nodeArg, 
     tasks,
     packageInfos,
     priorities: config.priorities,
-    shouldRun: shouldRun(pickerOptions)
+    shouldRun: shouldRun(pickerOptions),
   });
 
   const targetHasher = new TargetHasher({

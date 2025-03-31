@@ -8,15 +8,15 @@ import { TargetRunner, TargetRunnerPicker, TargetRunnerPickerOptions } from "@la
 export function shouldRun(pickerOptions: TargetRunnerPickerOptions) {
   const picker = new TargetRunnerPicker(pickerOptions);
   return async (config: TargetConfig, target: Target) => {
-    if (typeof config.shouldRun === "function" && !await config.shouldRun(target)) {
+    if (typeof config.shouldRun === "function" && !(await config.shouldRun(target))) {
       return false;
     }
 
     const runner = await picker.pick(target);
-    if(!runner?.shouldRun(target)) {
+    if (!runner?.shouldRun(target)) {
       return false;
     }
 
     return true;
-  }
+  };
 }

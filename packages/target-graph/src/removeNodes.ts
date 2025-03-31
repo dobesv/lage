@@ -42,9 +42,9 @@ export async function removeNodes(dag: Target[], shouldDelete: (node: Target) =>
         newDependencies.add(depId);
       } else {
         // Node was removed, propagate dependencies from the removed node
-        additionalDependencies.get(depId)?.forEach(visitDependency)
+        additionalDependencies.get(depId)?.forEach(visitDependency);
       }
-    }
+    };
     node.dependencies.forEach(visitDependency);
     node.dependencies = Array.from(newDependencies);
   }
