@@ -101,7 +101,7 @@ export class WorkspaceTargetGraphBuilder {
       for (const packageName of packages) {
         const task = id;
         const target = this.targetFactory.createPackageTarget(packageName!, task, config);
-        if (await this.shouldRun(config, target)) {
+        if (!this.graphBuilder.targets.has(target.id) && (await this.shouldRun(config, target))) {
           this.graphBuilder.addTarget(target);
           this.targetConfigMap.set(id, config);
 
