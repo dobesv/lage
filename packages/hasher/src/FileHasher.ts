@@ -94,7 +94,7 @@ export class FileHasher {
     const stats = stat(files, { cwd: this.options.root }) ?? {};
 
     for (const file of files) {
-      const stat = stats[file];
+      const stat = stats[file] || { mtime: 0n, size: 0 };
 
       const info = this.#store[file];
       if (info && stat.mtime === info.mtime && stat.size == info.size) {
@@ -115,7 +115,13 @@ export class FileHasher {
           hash: hash ?? "",
         };
       } catch (e: any) {
-        if (e.code !== "ENOENT") {
+        if (e.code === "ENOENT") {
+          this.#store[file] = {
+            mtime: 0n,
+            size: 0,
+            hash: hash ?? "",
+          };
+        } else {
           throw e;
         }
       }
