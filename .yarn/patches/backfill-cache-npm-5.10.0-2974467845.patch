@@ -1,0 +1,269 @@
+diff --git a/lib/AzureBlobCacheStorage.d.ts.map b/lib/AzureBlobCacheStorage.d.ts.map
+new file mode 100644
+index 0000000000000000000000000000000000000000..fcd435acf06a03a2fcf9149170260aea274a549f
+--- /dev/null
++++ b/lib/AzureBlobCacheStorage.d.ts.map
+@@ -0,0 +1 @@
++{"version":3,"file":"AzureBlobCacheStorage.d.ts","sourceRoot":"","sources":["../src/AzureBlobCacheStorage.ts"],"names":[],"mappings":"AAIA,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AACzC,OAAO,EAAE,4BAA4B,EAAE,MAAM,iBAAiB,CAAC;AAI/D,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AA8D9C,qBAAa,qBAAsB,SAAQ,YAAY;IAInD,OAAO,CAAC,OAAO;IAHjB,OAAO,CAAC,QAAQ,CAAC,kBAAkB,CAAiC;gBAG1D,OAAO,EAAE,4BAA4B,EAC7C,MAAM,EAAE,MAAM,EACd,GAAG,EAAE,MAAM,EACX,kBAAkB,UAAQ;cAsBZ,MAAM,CAAC,IAAI,EAAE,MAAM,GAAG,OAAO,CAAC,OAAO,CAAC;cA+DtC,IAAI,CAAC,IAAI,EAAE,MAAM,EAAE,YAAY,EAAE,MAAM,EAAE,GAAG,OAAO,CAAC,IAAI,CAAC;CA4B1E"}
+\ No newline at end of file
+diff --git a/lib/CacheStorage.d.ts.map b/lib/CacheStorage.d.ts.map
+new file mode 100644
+index 0000000000000000000000000000000000000000..ba9bde65bf921dd907afd96574f06df30d037604
+--- /dev/null
++++ b/lib/CacheStorage.d.ts.map
+@@ -0,0 +1 @@
++{"version":3,"file":"CacheStorage.d.ts","sourceRoot":"","sources":["../src/CacheStorage.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AACzC,OAAO,EAAE,aAAa,EAAE,MAAM,iBAAiB,CAAC;AAuBhD,OAAO,EAAE,aAAa,EAAE,CAAC;AAEzB,8BAAsB,YAAa,YAAW,aAAa;IAEvD,SAAS,CAAC,MAAM,EAAE,MAAM;IACxB,SAAS,CAAC,GAAG,EAAE,MAAM;IACrB,OAAO,CAAC,kBAAkB;gBAFhB,MAAM,EAAE,MAAM,EACd,GAAG,EAAE,MAAM,EACb,kBAAkB,UAAQ;IAEvB,KAAK,CAAC,IAAI,EAAE,MAAM,GAAG,OAAO,CAAC,OAAO,CAAC;IAgBrC,GAAG,CAAC,IAAI,EAAE,MAAM,EAAE,UAAU,EAAE,MAAM,EAAE,GAAG,OAAO,CAAC,IAAI,CAAC;IAuBnE,SAAS,CAAC,QAAQ,CAAC,MAAM,CAAC,IAAI,EAAE,MAAM,GAAG,OAAO,CAAC,OAAO,CAAC;IAEzD,SAAS,CAAC,QAAQ,CAAC,IAAI,CAAC,IAAI,EAAE,MAAM,EAAE,YAAY,EAAE,MAAM,EAAE,GAAG,OAAO,CAAC,IAAI,CAAC;CAC7E"}
+\ No newline at end of file
+diff --git a/lib/LocalCacheStorage.d.ts.map b/lib/LocalCacheStorage.d.ts.map
+new file mode 100644
+index 0000000000000000000000000000000000000000..f4b1c219f76c9f450a0b52c16003c3f3a41bff89
+--- /dev/null
++++ b/lib/LocalCacheStorage.d.ts.map
+@@ -0,0 +1 @@
++{"version":3,"file":"LocalCacheStorage.d.ts","sourceRoot":"","sources":["../src/LocalCacheStorage.ts"],"names":[],"mappings":"AAIA,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AACzC,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAE9C,qBAAa,iBAAkB,SAAQ,YAAY;IAE/C,OAAO,CAAC,mBAAmB;gBAAnB,mBAAmB,EAAE,MAAM,EACnC,MAAM,EAAE,MAAM,EACd,GAAG,EAAE,MAAM,EACX,kBAAkB,UAAQ;IAK5B,SAAS,CAAC,mBAAmB,CAAC,IAAI,EAAE,MAAM,GAAG,MAAM;cAInC,MAAM,CAAC,IAAI,EAAE,MAAM,GAAG,OAAO,CAAC,OAAO,CAAC;cAuCtC,IAAI,CAAC,IAAI,EAAE,MAAM,EAAE,YAAY,EAAE,MAAM,EAAE,GAAG,OAAO,CAAC,IAAI,CAAC;CAmB1E"}
+\ No newline at end of file
+diff --git a/lib/LocalSkipCacheStorage.d.ts.map b/lib/LocalSkipCacheStorage.d.ts.map
+new file mode 100644
+index 0000000000000000000000000000000000000000..08b7c79abf27c35972d4fdf3385d1c2e61c1cbbf
+--- /dev/null
++++ b/lib/LocalSkipCacheStorage.d.ts.map
+@@ -0,0 +1 @@
++{"version":3,"file":"LocalSkipCacheStorage.d.ts","sourceRoot":"","sources":["../src/LocalSkipCacheStorage.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AAEzC,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAE9C;;GAEG;AACH,qBAAa,qBAAsB,SAAQ,YAAY;IAEnD,OAAO,CAAC,mBAAmB;gBAAnB,mBAAmB,EAAE,MAAM,EACnC,MAAM,EAAE,MAAM,EACd,GAAG,EAAE,MAAM,EACX,kBAAkB,UAAQ;IAK5B,SAAS,CAAC,mBAAmB,CAAC,IAAI,EAAE,MAAM,GAAG,MAAM;cAInC,MAAM,CAAC,IAAI,EAAE,MAAM,GAAG,OAAO,CAAC,OAAO,CAAC;cAYtC,IAAI,CAAC,IAAI,EAAE,MAAM,EAAE,aAAa,EAAE,MAAM,EAAE,GAAG,OAAO,CAAC,IAAI,CAAC;CAO3E"}
+\ No newline at end of file
+diff --git a/lib/NpmCacheStorage.d.ts.map b/lib/NpmCacheStorage.d.ts.map
+new file mode 100644
+index 0000000000000000000000000000000000000000..fbc5f8b9197f3f0c1840a4e3823f8f77b339035a
+--- /dev/null
++++ b/lib/NpmCacheStorage.d.ts.map
+@@ -0,0 +1 @@
++{"version":3,"file":"NpmCacheStorage.d.ts","sourceRoot":"","sources":["../src/NpmCacheStorage.ts"],"names":[],"mappings":"AAKA,OAAO,EAAE,sBAAsB,EAAE,MAAM,iBAAiB,CAAC;AACzD,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AAEzC,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAE9C,qBAAa,eAAgB,SAAQ,YAAY;IAE7C,OAAO,CAAC,OAAO;IACf,OAAO,CAAC,mBAAmB;gBADnB,OAAO,EAAE,sBAAsB,EAC/B,mBAAmB,EAAE,MAAM,EACnC,MAAM,EAAE,MAAM,EACd,GAAG,EAAE,MAAM,EACX,kBAAkB,UAAQ;cAKZ,MAAM,CAAC,IAAI,EAAE,MAAM,GAAG,OAAO,CAAC,OAAO,CAAC;cAmEtC,IAAI,CAAC,IAAI,EAAE,MAAM,EAAE,YAAY,EAAE,MAAM,EAAE;CA4D1D"}
+\ No newline at end of file
+diff --git a/lib/S3CacheStorage.d.ts b/lib/S3CacheStorage.d.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..c60423e014c637402eabde03984ccaf9a25825fd
+--- /dev/null
++++ b/lib/S3CacheStorage.d.ts
+@@ -0,0 +1,15 @@
++import { Logger } from "backfill-logger";
++import { S3CacheStorageOptions } from "backfill-config";
++import { CacheStorage } from "./CacheStorage";
++/**
++ * Implementation of backfill storage using AWS S3.  To use it,
++ * specify a custom
++ */
++export declare class S3CacheStorage extends CacheStorage {
++    private options;
++    private readonly s3Client;
++    constructor(options: S3CacheStorageOptions, logger: Logger, cwd: string, incrementalCaching?: boolean);
++    protected _fetch(hash: string): Promise<boolean>;
++    protected _put(hash: string, filesToCache: string[]): Promise<void>;
++}
++//# sourceMappingURL=S3CacheStorage.d.ts.map
+\ No newline at end of file
+diff --git a/lib/S3CacheStorage.d.ts.map b/lib/S3CacheStorage.d.ts.map
+new file mode 100644
+index 0000000000000000000000000000000000000000..b58eb4178e52b16bfbcc609fc2a91621470004b6
+--- /dev/null
++++ b/lib/S3CacheStorage.d.ts.map
+@@ -0,0 +1 @@
++{"version":3,"file":"S3CacheStorage.d.ts","sourceRoot":"","sources":["../src/S3CacheStorage.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AAIzC,OAAO,EAAE,qBAAqB,EAAE,MAAM,iBAAiB,CAAC;AACxD,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAsD9C;;;GAGG;AACH,qBAAa,cAAe,SAAQ,YAAY;IAI5C,OAAO,CAAC,OAAO;IAHjB,OAAO,CAAC,QAAQ,CAAC,QAAQ,CAAW;gBAG1B,OAAO,EAAE,qBAAqB,EACtC,MAAM,EAAE,MAAM,EACd,GAAG,EAAE,MAAM,EACX,kBAAkB,UAAQ;cAMZ,MAAM,CAAC,IAAI,EAAE,MAAM,GAAG,OAAO,CAAC,OAAO,CAAC;cA6DtC,IAAI,CAAC,IAAI,EAAE,MAAM,EAAE,YAAY,EAAE,MAAM,EAAE,GAAG,OAAO,CAAC,IAAI,CAAC;CA+B1E"}
+\ No newline at end of file
+diff --git a/lib/S3CacheStorage.js b/lib/S3CacheStorage.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..0b535c7fa96a6b71db54bf1b7bf76fe2b317bea9
+--- /dev/null
++++ b/lib/S3CacheStorage.js
+@@ -0,0 +1,133 @@
++"use strict";
++var __importDefault = (this && this.__importDefault) || function (mod) {
++    return (mod && mod.__esModule) ? mod : { "default": mod };
++};
++Object.defineProperty(exports, "__esModule", { value: true });
++exports.S3CacheStorage = void 0;
++const path_1 = __importDefault(require("path"));
++const stream_1 = require("stream");
++const tar_fs_1 = __importDefault(require("tar-fs"));
++const fs_extra_1 = require("fs-extra");
++const client_s3_1 = require("@aws-sdk/client-s3");
++const lib_storage_1 = require("@aws-sdk/lib-storage");
++const CacheStorage_1 = require("./CacheStorage");
++/*
++ * Timeout stream, will emit an error event if the
++ * input has not started providing data after a given time after
++ * its creation.
++ */
++class TimeoutStream extends stream_1.Transform {
++    constructor(timeout, message) {
++        super();
++        this.timeout = setTimeout(() => {
++            this.destroy(new Error(message));
++        }, timeout);
++    }
++    _transform(chunk, _encoding, callback) {
++        clearTimeout(this.timeout);
++        this.push(chunk);
++        callback();
++    }
++}
++/*
++ * Sponge stream, it will accumulate all the data it receives
++ * and emit it only if and when the input stream sends the "end" event.
++ */
++class SpongeStream extends stream_1.Transform {
++    constructor() {
++        super({
++            // This stream should never receive more data than its readableHighWaterMark
++            // otherwise the stream will get into a deadlock
++            // 1 TB should give enough room :)
++            readableHighWaterMark: 1024 * 1024 * 1024 * 1024,
++        });
++    }
++    _transform(chunk, _encoding, callback) {
++        this.pause();
++        this.push(chunk);
++        callback();
++    }
++    _flush(callback) {
++        this.resume();
++        callback();
++    }
++}
++/**
++ * Implementation of backfill storage using AWS S3.  To use it,
++ * specify a custom
++ */
++class S3CacheStorage extends CacheStorage_1.CacheStorage {
++    constructor(options, logger, cwd, incrementalCaching = false) {
++        super(logger, cwd, incrementalCaching);
++        this.options = options;
++        this.s3Client = new client_s3_1.S3Client(options.clientConfig || {});
++    }
++    async _fetch(hash) {
++        try {
++            const command = new client_s3_1.GetObjectCommand({
++                Bucket: this.options.bucket,
++                Key: (this.options.prefix ?? "") + hash,
++            });
++            const response = await this.s3Client.send(command);
++            if (this.options.maxSize &&
++                response.ContentLength &&
++                response.ContentLength > this.options.maxSize) {
++                this.logger.verbose(`Object is too large to be downloaded: ${hash}, size: ${response.ContentLength} bytes`);
++                return false;
++            }
++            const objectStream = response.Body;
++            if (!objectStream) {
++                throw new Error("Unable to fetch object.");
++            }
++            const tarWritableStream = tar_fs_1.default.extract(this.cwd);
++            const spongeStream = new SpongeStream();
++            const timeoutStream = new TimeoutStream(10 * 60 * 1000, `The fetch request to ${hash} seems to be hanging`);
++            const extractionPipeline = new Promise((resolve, reject) => (0, stream_1.pipeline)(objectStream, spongeStream, timeoutStream, tarWritableStream, (err) => {
++                if (err) {
++                    reject(err);
++                }
++                else {
++                    resolve();
++                }
++            }));
++            await extractionPipeline;
++            return true;
++        }
++        catch (error) {
++            if (error && error.name === "NoSuchKey") {
++                return false;
++            }
++            else {
++                throw error;
++            }
++        }
++    }
++    async _put(hash, filesToCache) {
++        const tarStream = tar_fs_1.default.pack(this.cwd, { entries: filesToCache });
++        // If there's a maxSize limit, first sum up the total size of bytes of all the outputGlobbed files
++        if (this.options.maxSize) {
++            let total = 0;
++            for (const file of filesToCache) {
++                total = total + (await (0, fs_extra_1.stat)(path_1.default.join(this.cwd, file))).size;
++            }
++            if (total > this.options.maxSize) {
++                this.logger.verbose(`The output is too large to be uploaded: ${hash}, size: ${total} bytes`);
++                return;
++            }
++        }
++        const pass = new stream_1.PassThrough();
++        tarStream.pipe(pass);
++        const upload = new lib_storage_1.Upload({
++            client: this.s3Client,
++            params: {
++                Bucket: this.options.bucket,
++                ContentType: "application/x-tar",
++                Key: (this.options.prefix ?? "") + hash,
++                Body: pass,
++            },
++        });
++        await upload.done();
++    }
++}
++exports.S3CacheStorage = S3CacheStorage;
++//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUzNDYWNoZVN0b3JhZ2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvUzNDYWNoZVN0b3JhZ2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUEsZ0RBQXdCO0FBQ3hCLG1DQUE2RTtBQUM3RSxvREFBMkI7QUFFM0IsdUNBQWdDO0FBQ2hDLGtEQUFnRTtBQUNoRSxzREFBOEM7QUFFOUMsaURBQThDO0FBRTlDOzs7O0dBSUc7QUFDSCxNQUFNLGFBQWMsU0FBUSxrQkFBUztJQUVuQyxZQUFZLE9BQWUsRUFBRSxPQUFlO1FBQzFDLEtBQUssRUFBRSxDQUFDO1FBQ1IsSUFBSSxDQUFDLE9BQU8sR0FBRyxVQUFVLENBQUMsR0FBRyxFQUFFO1lBQzdCLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxLQUFLLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQztRQUNuQyxDQUFDLEVBQUUsT0FBTyxDQUFDLENBQUM7SUFDZCxDQUFDO0lBQ0QsVUFBVSxDQUNSLEtBQVUsRUFDVixTQUF5QixFQUN6QixRQUEyQjtRQUUzQixZQUFZLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDO1FBQzNCLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUM7UUFDakIsUUFBUSxFQUFFLENBQUM7SUFDYixDQUFDO0NBQ0Y7QUFFRDs7O0dBR0c7QUFDSCxNQUFNLFlBQWEsU0FBUSxrQkFBUztJQUNsQztRQUNFLEtBQUssQ0FBQztZQUNKLDRFQUE0RTtZQUM1RSxnREFBZ0Q7WUFDaEQsa0NBQWtDO1lBQ2xDLHFCQUFxQixFQUFFLElBQUksR0FBRyxJQUFJLEdBQUcsSUFBSSxHQUFHLElBQUk7U0FDakQsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztJQUNELFVBQVUsQ0FDUixLQUFVLEVBQ1YsU0FBeUIsRUFDekIsUUFBMkI7UUFFM0IsSUFBSSxDQUFDLEtBQUssRUFBRSxDQUFDO1FBQ2IsSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQztR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
+\ No newline at end of file
+diff --git a/lib/hashFile.d.ts.map b/lib/hashFile.d.ts.map
+new file mode 100644
+index 0000000000000000000000000000000000000000..01339b6d5d6fd3b6766709f595f0fc01b67e3677
+--- /dev/null
++++ b/lib/hashFile.d.ts.map
+@@ -0,0 +1 @@
++{"version":3,"file":"hashFile.d.ts","sourceRoot":"","sources":["../src/hashFile.ts"],"names":[],"mappings":"AAoCA,wBAAsB,WAAW,CAC/B,GAAG,EAAE,MAAM,EACX,QAAQ,EAAE,MAAM,GACf,OAAO,CAAC,MAAM,CAAC,CAgBjB"}
+\ No newline at end of file
+diff --git a/lib/index.d.ts.map b/lib/index.d.ts.map
+new file mode 100644
+index 0000000000000000000000000000000000000000..068296a0a1dec58a623a4430664ca6687edb8bc4
+--- /dev/null
++++ b/lib/index.d.ts.map
+@@ -0,0 +1 @@
++{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,kBAAkB,EAAE,mBAAmB,EAAE,MAAM,iBAAiB,CAAC;AAC1E,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AAEzC,OAAO,EAAE,aAAa,EAAE,MAAM,gBAAgB,CAAC;AAM/C,OAAO,EAAE,aAAa,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAE7D,wBAAgB,gBAAgB,CAC9B,MAAM,EAAE,kBAAkB,GACzB,MAAM,IAAI,mBAAmB,CAE/B;AAID,wBAAgB,uBAAuB,CACrC,kBAAkB,EAAE,kBAAkB,EACtC,mBAAmB,EAAE,MAAM,EAC3B,MAAM,EAAE,MAAM,EACd,GAAG,EAAE,MAAM,EACX,kBAAkB,UAAQ,GACzB,aAAa,CAyDf"}
+\ No newline at end of file
+diff --git a/lib/index.js b/lib/index.js
+index be000889c0a50b2d180256c0e9316d19f7b6a9e2..3fa5b5ffd326e1e21659a166b2e97cb7ae3f64a2 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -5,6 +5,7 @@ const AzureBlobCacheStorage_1 = require("./AzureBlobCacheStorage");
+ const LocalCacheStorage_1 = require("./LocalCacheStorage");
+ const NpmCacheStorage_1 = require("./NpmCacheStorage");
+ const LocalSkipCacheStorage_1 = require("./LocalSkipCacheStorage");
++const S3CacheStorage_1 = require("./S3CacheStorage");
+ var CacheStorage_1 = require("./CacheStorage");
+ Object.defineProperty(exports, "CacheStorage", { enumerable: true, get: function () { return CacheStorage_1.CacheStorage; } });
+ function isCustomProvider(config) {
+@@ -33,6 +34,9 @@ function getCacheStorageProvider(cacheStorageConfig, internalCacheFolder, logger
+     else if (cacheStorageConfig.provider === "azure-blob") {
+         cacheStorage = new AzureBlobCacheStorage_1.AzureBlobCacheStorage(cacheStorageConfig.options, logger, cwd, incrementalCaching);
+     }
++    else if (cacheStorageConfig.provider === "s3") {
++        cacheStorage = new S3CacheStorage_1.S3CacheStorage(cacheStorageConfig.options, logger, cwd, incrementalCaching);
++    }
+     else if (cacheStorageConfig.provider === "local-skip") {
+         cacheStorage = new LocalSkipCacheStorage_1.LocalSkipCacheStorage(internalCacheFolder, logger, cwd, incrementalCaching);
+     }
+@@ -43,4 +47,4 @@ function getCacheStorageProvider(cacheStorageConfig, internalCacheFolder, logger
+     return cacheStorage;
+ }
+ exports.getCacheStorageProvider = getCacheStorageProvider;
+-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBSUEsbUVBQWdFO0FBQ2hFLDJEQUF3RDtBQUN4RCx1REFBb0Q7QUFDcEQsbUVBQWdFO0FBQ2hFLCtDQUE2RDtBQUFyQyw0R0FBQSxZQUFZLE9BQUE7QUFFcEMsU0FBZ0IsZ0JBQWdCLENBQzlCLE1BQTBCO0lBRTFCLE9BQU8sT0FBTyxNQUFNLENBQUMsUUFBUSxLQUFLLFVBQVUsQ0FBQztBQUMvQyxDQUFDO0FBSkQsNENBSUM7QUFFRCxNQUFNLElBQUksR0FBRyxJQUFJLEdBQUcsRUFBeUIsQ0FBQztBQUU5QyxTQUFnQix1QkFBdUIsQ0FDckMsa0JBQXNDLEVBQ3RDLG1CQUEyQixFQUMzQixNQUFjLEVBQ2QsR0FBVyxFQUNYLGtCQUFrQixHQUFHLEtBQUs7SUFFMUIsSUFBSSxZQUF1QyxDQUFDO0lBRTVDLElBQUksZ0JBQWdCLENBQUMsa0JBQWtCLENBQUMsRUFBRTtRQUN4QyxJQUFJO1lBQ0YsT0FBTyxrQkFBa0IsQ0FBQyxRQUFRLENBQUMsTUFBTSxFQUFFLEdBQUcsQ0FBQyxDQUFDO1NBQ2pEO1FBQUMsTUFBTTtZQUNOLE1BQU0sSUFBSSxLQUFLLENBQUMsZ0RBQWdELENBQUMsQ0FBQztTQUNuRTtLQUNGO0lBRUQsTUFBTSxHQUFHLEdBQUcsR0FBRyxrQkFBa0IsQ0FBQyxRQUFRLEdBQUcsbUJBQW1CLEdBQUcsR0FBRyxFQUFFLENBQUM7SUFDekUsWUFBWSxHQUFHLElBQUksQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLENBQUM7SUFDN0IsSUFBSSxZQUFZLEVBQUU7UUFDaEIsT0FBTyxZQUFZLENBQUM7S0FDckI7SUFFRCxJQUFJLGtCQUFrQixDQUFDLFFBQVEsS0FBSyxLQUFLLEVBQUU7UUFDekMsWUFBWSxHQUFHLElBQUksaUNBQWUsQ0FDaEMsa0JBQWtCLENBQUMsT0FBTyxFQUMxQixtQkFBbUIsRUFDbkIsTUFBTSxFQUNOLEdBQUcsRUFDSCxrQkFBa0IsQ0FDbkIsQ0FBQztLQUNIO1NBQU0sSUFBSSxrQkFBa0IsQ0FBQyxRQUFRLEtBQUssWUFBWSxFQUFFO1FBQ3ZELFlBQVksR0FBRyxJQUFJLDZDQUFxQixDQUN0QyxrQkFBa0IsQ0FBQyxPQUFPLEVBQzFCLE1BQU0sRUFDTixHQUFHLEVBQ0gsa0JBQWtCLENBQ25CLENBQUM7S0FDSDtTQUFNLElBQUksa0JBQWtCLENBQUMsUUFBUSxLQUFLLFlBQVksRUFBRTtRQUN2RCxZQUFZLEdBQUcsSUFBSSw2Q0FBcUIsQ0FDdEMsbUJBQW1CLEVBQ25CLE1BQU0sRUFDTixHQUFHLEVBQ0gsa0JBQWtCLENBQ25CLENBQUM7S0FDSDtTQUFNO1FBQ0wsWUFBWSxHQUFHLElBQUkscUNBQWlCLENBQ2xDLG1CQUFtQixFQUNuQixNQUFNLEVBQ04sR0FBRyxFQUNILGtCQUFrQixDQUNuQixDQUFDO0tBQ0g7SUFDRCxJQUFJLENBQUMsR0FBRyxDQUFDLEdBQUcsRUFBRSxZQUFZLENBQUMsQ0FBQztJQUU1QixPQUFPLFlBQVksQ0FBQztBQUN0QixDQUFDO0FBeERELDBEQXdEQyJ9
+\ No newline at end of file
++//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBSUEsbUVBQWdFO0FBQ2hFLDJEQUF3RDtBQUN4RCx1REFBb0Q7QUFDcEQsbUVBQWdFO0FBQ2hFLHFEQUFrRDtBQUNsRCwrQ0FBNkQ7QUFBckMsNEdBQUEsWUFBWSxPQUFBO0FBRXBDLFNBQWdCLGdCQUFnQixDQUM5QixNQUEwQjtJQUUxQixPQUFPLE9BQU8sTUFBTSxDQUFDLFFBQVEsS0FBSyxVQUFVLENBQUM7QUFDL0MsQ0FBQztBQUpELDRDQUlDO0FBRUQsTUFBTSxJQUFJLEdBQUcsSUFBSSxHQUFHLEVBQXlCLENBQUM7QUFFOUMsU0FBZ0IsdUJBQXVCLENBQ3JDLGtCQUFzQyxFQUN0QyxtQkFBMkIsRUFDM0IsTUFBYyxFQUNkLEdBQVcsRUFDWCxrQkFBa0IsR0FBRyxLQUFLO0lBRTFCLElBQUksWUFBdUMsQ0FBQztJQUU1QyxJQUFJLGdCQUFnQixDQUFDLGtCQUFrQixDQUFDLEVBQUU7UUFDeEMsSUFBSTtZQUNGLE9BQU8sa0JBQWtCLENBQUMsUUFBUSxDQUFDLE1BQU0sRUFBRSxHQUFHLENBQUMsQ0FBQztTQUNqRDtRQUFDLE1BQU07WUFDTixNQUFNLElBQUksS0FBSyxDQUFDLGdEQUFnRCxDQUFDLENBQUM7U0FDbkU7S0FDRjtJQUVELE1BQU0sR0FBRyxHQUFHLEdBQUcsa0JBQWtCLENBQUMsUUFBUSxHQUFHLG1CQUFtQixHQUFHLEdBQUcsRUFBRSxDQUFDO0lBQ3pFLFlBQVksR0FBRyxJQUFJLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBQzdCLElBQUksWUFBWSxFQUFFO1FBQ2hCLE9BQU8sWUFBWSxDQUFDO0tBQ3JCO0lBRUQsSUFBSSxrQkFBa0IsQ0FBQyxRQUFRLEtBQUssS0FBSyxFQUFFO1FBQ3pDLFlBQVksR0FBRyxJQUFJLGlDQUFlLENBQ2hDLGtCQUFrQixDQUFDLE9BQU8sRUFDMUIsbUJBQW1CLEVBQ25CLE1BQU0sRUFDTixHQUFHLEVBQ0gsa0JBQWtCLENBQ25CLENBQUM7S0FDSDtTQUFNLElBQUksa0JBQWtCLENBQUMsUUFBUSxLQUFLLFlBQVksRUFBRTtRQUN2RCxZQUFZLEdBQUcsSUFBSSw2Q0FBcUIsQ0FDdEMsa0JBQWtCLENBQUMsT0FBTyxFQUMxQixNQUFNLEVBQ04sR0FBRyxFQUNILGtCQUFrQixDQUNuQixDQUFDO0tBQ0g7U0FBTSxJQUFJLGtCQUFrQixDQUFDLFFBQVEsS0FBSyxJQUFJLEVBQUU7UUFDL0MsWUFBWSxHQUFHLElBQUksK0JBQWMsQ0FDL0Isa0JBQWtCLENBQUMsT0FBTyxFQUMxQixNQUFNLEVBQ04sR0FBRyxFQUNILGtCQUFrQixDQUNuQixDQUFDO0tBQ0g7U0FBTSxJQUFJLGtCQUFrQixDQUFDLFFBQVEsS0FBSyxZQUFZLEVBQUU7UUFDdkQsWUFBWSxHQUFHLElBQUksNkNBQXFCLENBQ3RDLG1CQUFtQixFQUNuQixNQUFNLEVBQ04sR0FBRyxFQUNILGtCQUFrQixDQUNuQixDQUFDO0tBQ0g7U0FBTTtRQUNMLFlBQVksR0FBRyxJQUFJLHFDQUFpQixDQUNsQyxtQkFBbUIsRUFDbkIsTUFBTSxFQUNOLEdBQUcsRUFDSCxrQkFBa0IsQ0FDbkIsQ0FBQztLQUNIO0lBQ0QsSUFBSSxDQUFDLEdBQUcsQ0FBQyxHQUFHLEVBQUUsWUFBWSxDQUFDLENBQUM7SUFFNUIsT0FBTyxZQUFZLENBQUM7QUFDdEIsQ0FBQztBQS9ERCwwREErREMifQ==
+\ No newline at end of file
+diff --git a/package.json b/package.json
+index 62556f0aa607466d0a33db3c62bf8e39628eb026..0213127768220691b7d40a6d72da8df62c7fd3d5 100644
+--- a/package.json
++++ b/package.json
+@@ -16,6 +16,8 @@
+     "watch": "tsc -b -w"
+   },
+   "dependencies": {
++    "@aws-sdk/client-s3": "^3.804.0",
++    "@aws-sdk/lib-storage": "^3.804.0",
+     "@azure/core-http": "^3.0.0",
+     "@azure/storage-blob": "^12.15.0",
+     "backfill-config": "^6.6.0",

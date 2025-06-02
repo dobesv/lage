@@ -11,3 +11,5 @@ coverage
 profile*.json
 .yarn/*
 !.yarn/releases/
+!.yarn/patches/
+

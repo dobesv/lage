@@ -56,5 +56,9 @@
       "prod"
     ]
   },
-  "packageManager": "yarn@4.9.1"
+  "packageManager": "yarn@4.9.1",
+  "resolutions": {
+    "backfill-cache": "patch:backfill-cache@npm%3A5.10.0#~/.yarn/patches/backfill-cache-npm-5.10.0-2974467845.patch",
+    "backfill-config": "patch:backfill-config@npm%3A6.6.0#~/.yarn/patches/backfill-config-npm-6.6.0-f0616af98f.patch"
+  }
 }
