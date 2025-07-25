@@ -35,7 +35,8 @@ export class NpmScriptRunner implements TargetRunner {
   constructor(private options: NpmScriptRunnerOptions) {}
 
   private getNpmArgs(task: string, taskArgs: string[]) {
-    const extraArgs = taskArgs.length > 0 ? ["--", ...taskArgs] : [];
+    const isNpm = this.options.npmCmd === "npm";
+    const extraArgs = taskArgs.length > 0 ? [...(isNpm ? ["--"] : []), ...taskArgs] : [];
     return ["run", task, ...extraArgs];
   }
 
