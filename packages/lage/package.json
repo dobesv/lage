@@ -1,11 +1,11 @@
 {
-  "name": "lage",
+  "name": "@dobesv/lage",
   "version": "2.14.6",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/lage"
+    "url": "https://github.com/dobesv/lage"
   },
-  "homepage": "https://microsoft.github.io/lage/",
+  "homepage": "https://dobesv.github.io/lage/",
   "main": "dist/main.js",
   "types": "dist/index.d.ts",
   "bin": {
