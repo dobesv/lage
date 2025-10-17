@@ -5,7 +5,7 @@ const fastGlob = require("fast-glob");
 /** @type {import("lage").ConfigOptions} */
 module.exports = {
   pipeline: {
-    "lage#bundle": ["^^transpile", "types"],
+    "@dobesv/lage#bundle": ["^^transpile", "types"],
     types: {
       type: "worker",
       options: {
