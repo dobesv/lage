@@ -34,9 +34,14 @@ export async function removeNodes(dag: Target[], shouldDelete: (node: Target) =>
   // Update dependencies of remaining nodes
   for (const node of nodeMap.values()) {
     const newDependencies = new Set<string>();
+    const processedDeps = new Set<string>();
 
     // Inherit the dependencies of removed nodes we depended on
     const visitDependency = (depId: string) => {
+      if (processedDeps.has(depId)) {
+        return;
+      }
+      processedDeps.add(depId);
       if (nodeMap.has(depId)) {
         // It's still a valid node, keep in dependencies list
         newDependencies.add(depId);
