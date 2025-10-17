@@ -1693,6 +1693,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dobesv/lage@workspace:packages/lage":
+  version: 0.0.0-use.local
+  resolution: "@dobesv/lage@workspace:packages/lage"
+  dependencies:
+    "@lage-run/cli": "workspace:^"
+    "@lage-run/runners": "workspace:^"
+    backfill-config: "patch:backfill-config@npm%3A6.6.0#~/.yarn/patches/backfill-config-npm-6.6.0-f0616af98f.patch"
+    dts-bundle-generator: "npm:^9.5.1"
+    esbuild: "npm:^0.25.0"
+    esbuild-plugin-alias: "npm:^0.2.1"
+    fsevents: "npm:~2.3.2"
+    glob-hasher: "npm:^1.4.2"
+    workspace-tools: "npm:0.38.3"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    lage: dist/lage.js
+    lage-server: dist/lage-server.js
+  languageName: unknown
+  linkType: soft
+
 "@esbuild/aix-ppc64@npm:0.25.0":
   version: 0.25.0
   resolution: "@esbuild/aix-ppc64@npm:0.25.0"
@@ -7419,28 +7441,6 @@ __metadata:
   checksum: 10c0/1eb319ea5cc4dfd3b7ecdee8753cdaa837345daea640f12e1139339ddccb68a7bc91e0e0ee363cae2e609839f98b6aca9c285a2b22ad4e8f2bfdf50ec7a0ef18
   languageName: node
   linkType: hard
-
-"lage@workspace:packages/lage":
-  version: 0.0.0-use.local
-  resolution: "lage@workspace:packages/lage"
-  dependencies:
-    "@lage-run/cli": "workspace:^"
-    "@lage-run/runners": "workspace:^"
-    backfill-config: "patch:backfill-config@npm%3A6.6.0#~/.yarn/patches/backfill-config-npm-6.6.0-f0616af98f.patch"
-    dts-bundle-generator: "npm:^9.5.1"
-    esbuild: "npm:^0.25.0"
-    esbuild-plugin-alias: "npm:^0.2.1"
-    fsevents: "npm:~2.3.2"
-    glob-hasher: "npm:^1.4.2"
-    workspace-tools: "npm:0.38.3"
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    lage: dist/lage.js
-    lage-server: dist/lage-server.js
-  languageName: unknown
-  linkType: soft
 
 "leven@npm:^3.1.0":
   version: 3.1.0
