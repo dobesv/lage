@@ -172,7 +172,6 @@ export class ThreadWorker extends EventEmitter implements IWorker {
 
     // by the time we have a "line" event, we expect there to have been a this.#taskInfo
     const lineHandlerFactory = (outputType: string) => {
-      let lines: string[] = [];
       let resolve: () => void;
 
       return (line: string) => {
@@ -184,7 +183,6 @@ export class ThreadWorker extends EventEmitter implements IWorker {
         }
 
         if (line.includes(startMarker(this.#taskInfo.id))) {
-          lines = [];
           if (outputType === "stdout") {
             resolve = this.#stdoutInfo.resolve;
           } else {
@@ -192,8 +190,6 @@ export class ThreadWorker extends EventEmitter implements IWorker {
           }
         } else if (line.includes(endMarker(this.#taskInfo.id))) {
           resolve();
-        } else {
-          lines.push(line);
         }
       };
     };
