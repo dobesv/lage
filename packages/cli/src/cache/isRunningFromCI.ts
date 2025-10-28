@@ -1,1 +1,3 @@
-export const isRunningFromCI = process.env.NODE_ENV !== "test" && (!!process.env.CI || !!process.env.TF_BUILD);
+import { isCI } from "../isCi.js";
+
+export const isRunningFromCI = process.env.NODE_ENV !== "test" && isCI;

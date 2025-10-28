@@ -1,6 +1,5 @@
 import { Option } from "commander";
-
-const isCI = process.env.CI || process.env.TF_BUILD;
+import { isCI } from "../isCi.js";
 
 const options = {
   logger: {
