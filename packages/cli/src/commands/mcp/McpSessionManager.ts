@@ -24,6 +24,7 @@ export interface RunOptions {
   cache?: boolean;
   resetCache?: boolean;
   continueOnError?: boolean;
+  verbose?: boolean;
 }
 
 export interface McpSessionManagerOptions {
@@ -50,12 +51,17 @@ export class McpSessionManager {
   private reporter: McpReporter;
   private currentAbortController: AbortController | null = null;
   private isRunning = false;
+  private onProgress?: (message: string) => void;
 
   constructor(options: McpSessionManagerOptions) {
     this.cwd = options.cwd;
     this.logger = createLogger();
     this.reporter = new McpReporter();
     this.logger.addReporter(this.reporter);
+  }
+
+  setOnProgress(callback: (message: string) => void) {
+    this.onProgress = callback;
   }
 
   /**
@@ -129,6 +135,7 @@ export class McpSessionManager {
     // Create new abort controller for this run
     this.currentAbortController = new AbortController();
     this.isRunning = true;
+    let progressInterval: NodeJS.Timeout | null = null;
 
     try {
       const concurrency = getConcurrency(options.concurrency, config.concurrency);
@@ -199,6 +206,20 @@ export class McpSessionManager {
         targets: new Map(optimizedTargets.map((target) => [target.id, target])),
       };
 
+      this.reporter.setOptions({
+        verbose: options.verbose,
+        onLog: this.onProgress,
+        totalTargets: optimizedGraph.targets.size,
+      });
+
+      if (this.onProgress) {
+        progressInterval = setInterval(() => {
+          if (this.onProgress) {
+            this.onProgress(this.reporter.getStatusLine());
+          }
+        }, 10000);
+      }
+
       const summary = await scheduler.run(root, optimizedGraph);
       await scheduler.cleanup();
 
@@ -210,10 +231,7 @@ export class McpSessionManager {
       if (!result) {
         return {
           success: false,
-          duration: 0,
-          summary: { total: 0, success: 0, failed: 0, skipped: 0, aborted: 0, pending: 0 },
-          targets: [],
-          failedTargets: [],
+          message: "Run completed but no result generated",
         };
       }
 
@@ -221,6 +239,9 @@ export class McpSessionManager {
     } finally {
       this.isRunning = false;
       this.currentAbortController = null;
+      if (progressInterval) {
+        clearInterval(progressInterval);
+      }
     }
   }
 

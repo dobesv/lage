@@ -11,6 +11,7 @@ export interface RunToolInput {
   cache?: boolean;
   resetCache?: boolean;
   continueOnError?: boolean;
+  verbose?: boolean;
 }
 
 export const runToolDefinition = {
@@ -74,6 +75,10 @@ Use this tool when you need to:
         type: "boolean",
         description: "Continue running other tasks after a failure",
       },
+      verbose: {
+        type: "boolean",
+        description: "Stream individual task status updates (running, success, failed, skipped)",
+      },
     },
     required: ["tasks"],
   },
@@ -91,5 +96,6 @@ export async function runTool(session: McpSessionManager, input: RunToolInput): 
     cache: input.cache ?? true,
     resetCache: input.resetCache ?? false,
     continueOnError: input.continueOnError ?? false,
+    verbose: input.verbose ?? false,
   });
 }

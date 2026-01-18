@@ -23,9 +23,17 @@ export async function mcpAction() {
     {
       capabilities: {
         tools: {},
+        logging: {},
       },
     }
   );
+
+  session.setOnProgress((message) => {
+    server.sendLoggingMessage({
+      level: "info",
+      data: message,
+    });
+  });
 
   // Register tool list handler
   server.setRequestHandler(ListToolsRequestSchema, async () => {

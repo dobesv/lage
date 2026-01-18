@@ -2,6 +2,13 @@ import { hrToSeconds } from "@lage-run/format-hrtime";
 import { LogLevel, type Reporter, type LogEntry } from "@lage-run/logger";
 import type { SchedulerRunSummary, TargetStatus, TargetRun } from "@lage-run/scheduler-types";
 
+function formatBytes(bytes: number) {
+  const sizes = ["B", "KB", "MB", "GB", "TB"];
+  if (bytes === 0) return "0 B";
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;
+}
+
 /**
  * Worker result type - matches the structure from @lage-run/scheduler
  */
@@ -34,18 +41,9 @@ export interface FailedTargetEntry {
 }
 
 export interface McpRunResult {
+  message: string;
   success: boolean;
-  duration: number;
-  summary: {
-    total: number;
-    success: number;
-    failed: number;
-    skipped: number;
-    aborted: number;
-    pending: number;
-  };
-  targets: TargetLogEntry[];
-  failedTargets: FailedTargetEntry[];
+  failedTargets?: FailedTargetEntry[];
 }
 
 interface TargetStatusEntry {
@@ -68,6 +66,12 @@ function hrToNumber(hrtime: [number, number]): number {
   return parseFloat(hrToSeconds(hrtime));
 }
 
+export interface McpReporterOptions {
+  verbose?: boolean;
+  onLog?: (message: string) => void;
+  totalTargets?: number;
+}
+
 /**
  * McpReporter captures log entries and target results for MCP tool responses
  * instead of writing them to console output.
@@ -76,6 +80,11 @@ export class McpReporter implements Reporter {
   private logEntries = new Map<string, LogEntry[]>();
   private targetStatuses = new Map<string, TargetLogEntry>();
   private runResult: McpRunResult | null = null;
+  private options: McpReporterOptions = {};
+
+  setOptions(options: McpReporterOptions) {
+    this.options = { ...this.options, ...options };
+  }
 
   log(entry: LogEntry<any>) {
     // if "hidden", do not record the entry
@@ -104,15 +113,54 @@ export class McpReporter implements Reporter {
           cached,
           duration: duration ? hrToNumber(duration) : 0,
         });
+
+        if (this.options.verbose && this.options.onLog) {
+          const pkg = target.packageName ?? "unknown";
+          if (["running", "success", "failed", "skipped"].includes(status)) {
+            this.options.onLog(`[${pkg} ${target.task}] ${status}`);
+          }
+        }
       }
     }
   }
 
+  getStatusLine(): string {
+    let success = 0;
+    let failed = 0;
+    let skipped = 0;
+    let running = 0;
+
+    for (const status of this.targetStatuses.values()) {
+      switch (status.status) {
+        case "success":
+          success++;
+          break;
+        case "failed":
+          failed++;
+          break;
+        case "skipped":
+          skipped++;
+          break;
+        case "running":
+          running++;
+          break;
+      }
+    }
+
+    const completed = success + failed + skipped;
+    const total = this.options.totalTargets ?? 0;
+    const pending = Math.max(0, total - completed - running);
+
+    const mem = process.memoryUsage();
+    const memStr = `RSS: ${formatBytes(mem.rss)} | Heap: ${formatBytes(mem.heapUsed)}`;
+
+    return `Progress: ${completed}/${total} (Success: ${success}, Failed: ${failed}, Skipped: ${skipped}, Running: ${running}, Pending: ${pending}) | ${memStr}`;
+  }
+
   summarize(summary: SchedulerRunSummary<WorkerResult>) {
     const { targetRuns, targetRunByStatus, duration, results } = summary;
-    const { failed, aborted, skipped, success, pending } = targetRunByStatus;
+    const { failed, success, skipped } = targetRunByStatus;
 
-    const targets: TargetLogEntry[] = [];
     const failedTargets: FailedTargetEntry[] = [];
 
     for (const [id, targetRun] of targetRuns) {
@@ -120,18 +168,6 @@ export class McpReporter implements Reporter {
       if (target.hidden) {
         continue;
       }
-
-      const durationSecs = targetRun.duration ? hrToNumber(targetRun.duration) : 0;
-      const cached = targetRun.status === "skipped";
-
-      targets.push({
-        id,
-        package: target.packageName ?? "",
-        task: target.task,
-        status: targetRun.status,
-        cached,
-        duration: durationSecs,
-      });
 
       // Collect failed target details
       if (targetRun.status === "failed") {
@@ -147,19 +183,23 @@ export class McpReporter implements Reporter {
       }
     }
 
+    const durationSecs = hrToNumber(duration);
+    const mem = process.memoryUsage();
+    const memStr = `RSS: ${formatBytes(mem.rss)} | Heap: ${formatBytes(mem.heapUsed)}`;
+    let message = `Build ${results === "success" ? "succeeded" : "failed"} in ${durationSecs.toFixed(2)}s. (${memStr})`;
+    message += `\nSuccess: ${success.length}, Failed: ${failed.length}, Skipped: ${skipped.length}`;
+
+    if (failedTargets.length > 0) {
+      message += `\n\nFailed targets:\n`;
+      failedTargets.forEach((t) => {
+        message += `- ${t.package} ${t.task}: ${t.error || "Check stdout/stderr"}\n`;
+      });
+    }
+
     this.runResult = {
+      message,
       success: results === "success",
-      duration: hrToNumber(duration),
-      summary: {
-        total: targetRuns.size,
-        success: success.length,
-        failed: failed.length,
-        skipped: skipped.length,
-        aborted: aborted.length,
-        pending: pending.length,
-      },
-      targets,
-      failedTargets,
+      failedTargets: failedTargets.length > 0 ? failedTargets : undefined,
     };
   }
 
@@ -183,6 +223,7 @@ export class McpReporter implements Reporter {
     this.logEntries.clear();
     this.targetStatuses.clear();
     this.runResult = null;
+    this.options = {};
   }
 
   /**
