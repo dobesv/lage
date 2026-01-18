@@ -1,8 +1,16 @@
 # Change Log - @lage-run/hasher
 
-<!-- This log was last generated on Thu, 17 Apr 2025 08:10:01 GMT and should not be manually modified. -->
+<!-- This log was last generated on Sun, 18 Jan 2026 22:21:49 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.9.0
+
+Sun, 18 Jan 2026 22:21:49 GMT
+
+### Minor changes
+
+- Support referencing files in a specific package or at the workspace level in inputs (dobes@formative.com)
 
 ## 1.8.2
 

@@ -2,6 +2,21 @@
   "name": "@lage-run/hasher",
   "entries": [
     {
+      "date": "Sun, 18 Jan 2026 22:21:49 GMT",
+      "version": "1.9.0",
+      "tag": "@lage-run/hasher_v1.9.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "dobes@formative.com",
+            "package": "@lage-run/hasher",
+            "commit": "62e1c75696104779de5f3ae18c3ac57788f04663",
+            "comment": "Support referencing files in a specific package or at the workspace level in inputs"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 17 Apr 2025 08:10:01 GMT",
       "version": "1.8.2",
       "tag": "@lage-run/hasher_v1.8.2",
