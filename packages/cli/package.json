@@ -34,6 +34,7 @@
     "@lage-run/scheduler-types": "workspace:^",
     "@lage-run/target-graph": "workspace:^",
     "@lage-run/worker-threads-pool": "workspace:^",
+    "@modelcontextprotocol/sdk": "^1.0.0",
     "chokidar": "3.6.0",
     "commander": "9.5.0",
     "execa": "5.1.1",

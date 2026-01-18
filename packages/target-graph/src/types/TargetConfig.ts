@@ -11,6 +11,12 @@ export interface TargetConfig {
   type?: string;
 
   /**
+   * A human-readable description of what this task does.
+   * This is used by MCP servers and other tools to provide context to AI coding assistants.
+   */
+  description?: string;
+
+  /**
    * @deprecated - use `dependsOn` instead
    *
    * The dependencies of the target. Dependencies are target specs in one of these forms:

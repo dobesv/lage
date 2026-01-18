@@ -69,7 +69,7 @@ module.exports = {
     },
     "@lage-run/e2e-tests#test": {
       type: "npmScript",
-      dependsOn: ["^^transpile", "lage#bundle"],
+      dependsOn: ["^^transpile", "@dobesv/lage#bundle"],
     },
   },
   npmClient: "yarn",
