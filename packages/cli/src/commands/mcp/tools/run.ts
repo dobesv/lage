@@ -18,21 +18,13 @@ export const runToolDefinition = {
   name: "lage_run",
   description: `Execute build tasks in a JavaScript/TypeScript monorepo using lage.
 
-IMPORTANT: This tool only works for monorepos using lage as their task runner. Before using this tool, call lage_packages first to verify lage is configured. If lage_packages returns an empty pipelineTasks array, do NOT use this tool - the project uses a different build system.
+IMPORTANT: Always prefer 'lage_run' over manual shell commands like 'yarn workspace xxx build' or 'npm run build' when you need to execute tasks. This tool manages dependencies, caching, and concurrency much more efficiently than standard workspace runners.
 
 Key features:
 - Runs tasks in dependency order across packages
 - Caches results for faster subsequent runs
 - Supports scoping to specific packages
-- Can detect changed packages since a git ref
-
-Use this tool when you need to:
-- Build packages (tasks: ["build"])
-- Run tests (tasks: ["test"])
-- Run linting (tasks: ["lint"])
-- Run multiple tasks (tasks: ["build", "test"])
-- Build specific packages (scope: ["package-name"])
-- Build only changed packages (since: "main")`,
+- Can detect changed packages since a git ref`,
   inputSchema: {
     type: "object" as const,
     properties: {

@@ -7,6 +7,8 @@ import { infoTool, infoToolDefinition } from "./tools/info.js";
 import { affectedTool, affectedToolDefinition } from "./tools/affected.js";
 import { cacheTool, cacheToolDefinition } from "./tools/cache.js";
 import { packagesTool, packagesToolDefinition } from "./tools/packages.js";
+import { packageInfoTool, packageInfoToolDefinition } from "./tools/packageInfo.js";
+import { pipelineTool, pipelineToolDefinition } from "./tools/pipeline.js";
 
 export async function mcpAction() {
   const cwd = process.cwd();
@@ -38,7 +40,15 @@ export async function mcpAction() {
   // Register tool list handler
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
-      tools: [runToolDefinition, infoToolDefinition, affectedToolDefinition, cacheToolDefinition, packagesToolDefinition],
+      tools: [
+        runToolDefinition,
+        infoToolDefinition,
+        affectedToolDefinition,
+        cacheToolDefinition,
+        packagesToolDefinition,
+        packageInfoToolDefinition,
+        pipelineToolDefinition,
+      ],
     };
   });
 
@@ -64,6 +74,12 @@ export async function mcpAction() {
           break;
         case "lage_packages":
           result = await packagesTool(session, args as any);
+          break;
+        case "lage_package_info":
+          result = await packageInfoTool(session, args as any);
+          break;
+        case "lage_pipeline":
+          result = await pipelineTool(session, args as any);
           break;
         default:
           return {
