@@ -68,6 +68,79 @@ lage test
 
 `lage` will detect that you need to run `build` steps before `test`s are run.
 
+## MCP Server for AI Coding Assistants
+
+Lage includes an MCP (Model Context Protocol) server that allows AI coding assistants like Claude Code, Gemini CLI, or others to run build tasks directly.
+
+### Available Tools
+
+| Tool            | Description                                                                    |
+| --------------- | ------------------------------------------------------------------------------ |
+| `lage_packages` | List all packages and pipeline tasks (call first to verify lage is configured) |
+| `lage_run`      | Execute build tasks with caching                                               |
+| `lage_info`     | Preview task graph without executing                                           |
+| `lage_affected` | Show packages affected by changes since a git ref                              |
+| `lage_cache`    | Manage build cache (clear/prune/status)                                        |
+
+### Installation
+
+#### Claude Code
+
+```bash
+claude mcp add --transport stdio lage -- npx @dobesv/lage mcp
+```
+
+Or with yarn:
+
+```bash
+claude mcp add --transport stdio lage -- yarn dlx @dobesv/lage mcp
+```
+
+#### Gemini CLI
+
+Add to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "lage": {
+      "command": "npx",
+      "args": ["@dobesv/lage", "mcp"]
+    }
+  }
+}
+```
+
+#### Other MCP Clients
+
+The MCP server uses stdio transport. Run:
+
+```bash
+npx @dobesv/lage mcp
+```
+
+### Task Descriptions
+
+You can add descriptions to pipeline tasks in `lage.config.js` to help AI assistants understand what each task does:
+
+```js
+module.exports = {
+  pipeline: {
+    build: {
+      dependsOn: ["^build"],
+      description: "Compile TypeScript and bundle the package",
+    },
+    test: {
+      dependsOn: ["build"],
+      description: "Run unit tests with Jest",
+    },
+    lint: {
+      description: "Check code style with ESLint",
+    },
+  },
+};
+```
+
 ## Next steps
 
 Take a look at some of the other resources on the website:
