@@ -48,6 +48,14 @@ Use this tool when:
 };
 
 export async function cacheTool(session: McpSessionManager, input: CacheToolInput): Promise<CacheToolResult> {
+  // Check if lage is configured
+  if (!session.isConfigured) {
+    return {
+      success: false,
+      message: session.configError ?? "Lage is not configured in this workspace.",
+    };
+  }
+
   const root = session.getRoot();
   const config = await session.getConfig();
   const logger = createLogger();

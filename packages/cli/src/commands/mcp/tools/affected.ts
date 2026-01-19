@@ -10,6 +10,7 @@ export interface AffectedToolInput {
 export interface AffectedToolResult {
   packages: string[];
   count: number;
+  error?: string;
 }
 
 export const affectedToolDefinition = {
@@ -42,6 +43,15 @@ Common use cases:
 };
 
 export async function affectedTool(session: McpSessionManager, input: AffectedToolInput): Promise<AffectedToolResult> {
+  // Check if lage is configured
+  if (!session.isConfigured) {
+    return {
+      packages: [],
+      count: 0,
+      error: session.configError ?? "Lage is not configured in this workspace.",
+    };
+  }
+
   const root = session.getRoot();
   const config = await session.getConfig();
   const packageInfos = await session.getPackageInfos();

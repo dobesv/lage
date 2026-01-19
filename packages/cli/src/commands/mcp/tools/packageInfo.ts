@@ -22,6 +22,7 @@ export interface PackageInfoToolResult {
   name: string;
   path: string;
   tasks: TaskInfo[];
+  error?: string;
 }
 
 export const packageInfoToolDefinition = {
@@ -45,6 +46,16 @@ Use this tool to find:
 };
 
 export async function packageInfoTool(session: McpSessionManager, input: PackageInfoToolInput): Promise<PackageInfoToolResult> {
+  // Check if lage is configured
+  if (!session.isConfigured) {
+    return {
+      name: input.packageName,
+      path: "",
+      tasks: [],
+      error: session.configError ?? "Lage is not configured in this workspace.",
+    };
+  }
+
   const root = session.getRoot();
   const config = await session.getConfig();
   const packageInfos = await session.getPackageInfos();

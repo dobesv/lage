@@ -77,6 +77,14 @@ Key features:
 };
 
 export async function runTool(session: McpSessionManager, input: RunToolInput): Promise<McpRunResult> {
+  // Check if lage is configured
+  if (!session.isConfigured) {
+    return {
+      success: false,
+      message: session.configError ?? "Lage is not configured in this workspace. Create a lage.config.js file with a pipeline definition.",
+    };
+  }
+
   return session.run({
     tasks: input.tasks,
     scope: input.scope,

@@ -22,6 +22,7 @@ export interface InfoToolResult {
     task: string;
     dependencies: string[];
   }>;
+  error?: string;
 }
 
 export const infoToolDefinition = {
@@ -68,6 +69,16 @@ This is useful before running tasks to preview what will happen.`,
 };
 
 export async function infoTool(session: McpSessionManager, input: InfoToolInput): Promise<InfoToolResult> {
+  // Check if lage is configured
+  if (!session.isConfigured) {
+    return {
+      packages: [],
+      totalTargets: 0,
+      targets: [],
+      error: session.configError ?? "Lage is not configured in this workspace.",
+    };
+  }
+
   const root = session.getRoot();
   const config = await session.getConfig();
   const packageInfos = await session.getPackageInfos();

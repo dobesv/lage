@@ -11,6 +11,7 @@ export interface PipelineTaskInfo {
 
 export interface PipelineToolResult {
   pipelineTasks: PipelineTaskInfo[];
+  error?: string;
 }
 
 export const pipelineToolDefinition = {
@@ -26,6 +27,14 @@ Use this tool to understand the available task types and their default configura
 };
 
 export async function pipelineTool(session: McpSessionManager, _input: PipelineToolInput): Promise<PipelineToolResult> {
+  // Check if lage is configured
+  if (!session.isConfigured) {
+    return {
+      pipelineTasks: [],
+      error: session.configError ?? "Lage is not configured in this workspace.",
+    };
+  }
+
   const config = await session.getConfig();
 
   const pipelineTasks: PipelineTaskInfo[] = [];

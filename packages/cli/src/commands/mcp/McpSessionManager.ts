@@ -52,6 +52,8 @@ export class McpSessionManager {
   private currentAbortController: AbortController | null = null;
   private isRunning = false;
   private onProgress?: (message: string) => void;
+  private _isConfigured = false;
+  private _configError: string | null = null;
 
   constructor(options: McpSessionManagerOptions) {
     this.cwd = options.cwd;
@@ -65,12 +67,44 @@ export class McpSessionManager {
   }
 
   /**
-   * Initialize or reload configuration and package info
+   * Whether lage is properly configured in this workspace
+   */
+  get isConfigured(): boolean {
+    return this._isConfigured;
+  }
+
+  /**
+   * Error message if configuration failed
+   */
+  get configError(): string | null {
+    return this._configError;
+  }
+
+  /**
+   * Initialize or reload configuration and package info.
+   * If initialization fails (no workspace root, no config, etc.), the session
+   * will be marked as not configured but won't throw.
    */
   async initialize(): Promise<void> {
-    this.root = getWorkspaceRoot(this.cwd) ?? this.cwd;
-    this.config = await getConfig(this.cwd);
-    this.packageInfos = await getPackageInfosAsync(this.root);
+    try {
+      this.root = getWorkspaceRoot(this.cwd) ?? this.cwd;
+      this.config = await getConfig(this.cwd);
+      this.packageInfos = await getPackageInfosAsync(this.root);
+
+      // Check if we have a valid pipeline configuration
+      const hasPipeline = this.config.pipeline && Object.keys(this.config.pipeline).length > 0;
+      this._isConfigured = hasPipeline;
+      if (!hasPipeline) {
+        this._configError = "No lage pipeline configuration found. Create a lage.config.js file with a pipeline definition.";
+      }
+    } catch (error) {
+      this._isConfigured = false;
+      this._configError = error instanceof Error ? error.message : String(error);
+      // Set defaults so tools can still respond gracefully
+      this.root = this.cwd;
+      this.config = null;
+      this.packageInfos = {};
+    }
   }
 
   /**
