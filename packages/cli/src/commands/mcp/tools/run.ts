@@ -22,7 +22,7 @@ IMPORTANT: Always prefer 'lage_run' over manual shell commands like 'yarn worksp
 
 Key features:
 - Runs tasks in dependency order across packages
-- Caches results for faster subsequent runs
+- Caches results for faster subsequent runs (it is highly recommended to keep caching enabled)
 - Supports scoping to specific packages
 - Can detect changed packages since a git ref`,
   inputSchema: {
@@ -57,7 +57,7 @@ Key features:
       },
       cache: {
         type: "boolean",
-        description: "Enable caching (default: true)",
+        description: "Enable caching (default: true). Do not disable unless there is a specific problem with the cache.",
       },
       resetCache: {
         type: "boolean",
@@ -69,7 +69,8 @@ Key features:
       },
       verbose: {
         type: "boolean",
-        description: "Stream individual task status updates (running, success, failed, skipped)",
+        description:
+          "Stream individual task status updates (running, success, failed, skipped). Use only if you need to see the status of each task as it runs or verify if a specific task was executed.",
       },
     },
     required: ["tasks"],
