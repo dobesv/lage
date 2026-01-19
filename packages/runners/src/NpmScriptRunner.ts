@@ -9,6 +9,8 @@ export interface NpmScriptRunnerOptions {
   taskArgs: string[];
   nodeOptions: string;
   npmCmd: string;
+  /** When true, disables color output by setting NO_COLOR=1 and TERM=dumb */
+  noColor?: boolean;
 }
 
 /**
@@ -27,7 +29,9 @@ export interface NpmScriptRunnerOptions {
  *    - LAGE_PACKAGE_NAME - the name of the package
  *    - LAGE_TASK - the name of the task
  *    - NODE_OPTIONS - the node options to use when spawning the child process
- *    - FORCE_COLOR - set to "1" detect that this is a TTY
+ *    - FORCE_COLOR - set to "1" to detect that this is a TTY (when noColor is false)
+ *    - NO_COLOR - set to "1" to disable color output (when noColor is true)
+ *    - TERM - set to "dumb" to indicate no terminal capabilities (when noColor is true)
  */
 export class NpmScriptRunner implements TargetRunner {
   static gracefulKillTimeout = 2500;
@@ -56,7 +60,7 @@ export class NpmScriptRunner implements TargetRunner {
 
   async run(runOptions: TargetRunnerOptions): Promise<RunnerResult> {
     const { target, weight, abortSignal } = runOptions;
-    const { nodeOptions, npmCmd, taskArgs } = this.options;
+    const { nodeOptions, npmCmd, taskArgs, noColor } = this.options;
     const task = target.options?.script ?? target.task;
 
     let childProcess: ChildProcess | undefined;
@@ -111,7 +115,8 @@ export class NpmScriptRunner implements TargetRunner {
         // This is required for Windows due to https://nodejs.org/en/blog/vulnerability/april-2024-security-releases-2
         ...(os.platform() === "win32" && { shell: true }),
         env: {
-          ...(process.stdout.isTTY && { FORCE_COLOR: "1" }), // allow user env to override this
+          // Color handling: noColor disables colors, otherwise enable if TTY
+          ...(noColor ? { NO_COLOR: "1", TERM: "dumb" } : process.stdout.isTTY && { FORCE_COLOR: "1" }),
           ...process.env,
           ...(npmRunNodeOptions && { NODE_OPTIONS: npmRunNodeOptions }),
           LAGE_PACKAGE_NAME: target.packageName,

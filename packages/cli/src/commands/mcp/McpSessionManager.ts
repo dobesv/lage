@@ -176,7 +176,7 @@ export class McpSessionManager {
       const taskArgs: string[] = [];
 
       const pickerOptions: TargetRunnerPickerOptions = {
-        ...runnerPickerOptions("", config.npmClient, taskArgs),
+        ...runnerPickerOptions("", config.npmClient, taskArgs, true /* noColor */),
         ...config.runners,
       };
 
