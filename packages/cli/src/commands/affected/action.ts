@@ -51,17 +51,12 @@ export async function affectedAction(options: AffectedOptions) {
 
 function renderDefault(props: { packages: string[] }) {
   const { packages } = props;
-  return `
-All Affected Packages
----------------------
-
-${packages.join("\n")}
-`;
+  return packages.join("\n");
 }
 
 function renderJson(props: { packages: string[]; packageInfos: PackageInfos }) {
   const graph = generatePackageGraph(props);
-  return JSON.stringify(graph);
+  return JSON.stringify(graph, null, 2);
 }
 
 function renderGraph(props: { packages: string[]; packageInfos: PackageInfos }) {
