@@ -1,8 +1,43 @@
 import type { PackageInfos } from "workspace-tools";
-import { getScopedPackages, getChangedPackages, getTransitiveDependents, getTransitiveDependencies } from "workspace-tools";
+import {
+  getScopedPackages,
+  getTransitiveDependents,
+  getTransitiveDependencies,
+  getUntrackedChanges,
+  getUnstagedChanges,
+  getStagedChanges,
+  getBranchChanges,
+  getPackagesByFiles,
+} from "workspace-tools";
 
 import type { Logger } from "@lage-run/logger";
 import { hasRepoChanged } from "./hasRepoChanged.js";
+
+/**
+ * Finds the packages that contain files changed since `since`.
+ *
+ * This is intentionally NOT `workspace-tools`' `getChangedPackages`, which calls
+ * `getPackagesByFiles(..., returnAllPackagesOnNoMatch = true)`. That fallback
+ * returns EVERY package as soon as a single changed file lives outside every
+ * workspace package (a changeset, a doc, a root-level CI script, etc.). It fires
+ * silently and pre-empts lage's own `repoWideChanges` mechanism, so the careful
+ * `repoWideChanges` config below ends up meaning nothing.
+ *
+ * Here we pass `returnAllPackagesOnNoMatch = false` so non-package changes simply
+ * contribute no packages, and `repoWideChanges` (see `hasRepoChanged`) remains the
+ * single, explicit source of truth for "root changes that affect the whole repo".
+ */
+function getChangedPackagesExcludingNonPackageFiles(root: string, since: string, ignoreGlobs: string[] | undefined): string[] {
+  const changes = [
+    ...new Set([
+      ...(getUntrackedChanges(root) || []),
+      ...(getUnstagedChanges(root) || []),
+      ...(getBranchChanges(since, root) || []),
+      ...(getStagedChanges(root) || []),
+    ]),
+  ];
+  return getPackagesByFiles(root, changes, ignoreGlobs ?? [], false);
+}
 
 export function getFilteredPackages(options: {
   root: string;
@@ -40,7 +75,7 @@ export function getFilteredPackages(options: {
   // If since is defined, get changed packages.
   else if (hasSince) {
     try {
-      changedPackages = getChangedPackages(root, since, sinceIgnoreGlobs);
+      changedPackages = getChangedPackagesExcludingNonPackageFiles(root, since!, sinceIgnoreGlobs);
     } catch (e) {
       logger.warn(`An error in the git command has caused this scope run to include every package\n${e}`);
       // if getChangedPackages throws, we will assume all have changed (using changedPackage = undefined)
